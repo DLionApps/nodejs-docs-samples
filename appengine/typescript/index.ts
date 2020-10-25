@@ -13,9 +13,15 @@
 // limitations under the License.
 
 import express = require('express');
+const Hapi = require('@hapi/hapi');
 
 const PORT = Number(process.env.PORT) || 8080;
 const app = express();
+
+const hapiServer = Hapi.server({
+  port: 3000,
+  host: 'localhost'
+});
 
 app.get("/", (req, res) => {
   res.send("🎉 Hello TypeScript! 🎉");
